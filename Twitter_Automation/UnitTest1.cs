@@ -8,26 +8,19 @@ using OpenQA.Selenium.Support.UI;
 namespace Twitter_Automation
     {
     [TestClass]
-    public class TwitterTest
+    public class UnitTest1
         {
         private static ChromeDriver driver;
         public static WebDriverWait wait;
 
-        [TestInitialize]
-        public static void setUp()
-            {
-            driver = new ChromeDriver();
-            wait = new WebDriverWait(driver, TimeSpan.FromSeconds(15000));
-            }
-
-
         [TestMethod]
-        public void AutoFollow()
+        public void McTesterSon()
             {
-            //Instatiating Variables
+            //Instatiating Variabnunit-console nunit.tests.dllles
             var s = new Sources();
             var tw = new TestHelpers();
-
+            driver = new ChromeDriver();
+            wait = new WebDriverWait(driver, TimeSpan.FromSeconds(15000));
             //Open Main Page and Sign In
             driver.Navigate().GoToUrl(new Uri("http://www.statusbrew.com"));
             driver.Manage().Window.Maximize();
