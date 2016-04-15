@@ -1,19 +1,19 @@
 ﻿using System;
 using System.Threading;
-using NUnit.Framework;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 
 namespace Twitter_Automation
     {
-    [TestFixture]
+    [TestClass]
     public class TwitterTest
         {
         private static ChromeDriver driver;
         public static WebDriverWait wait;
 
-        [SetUp]
+        [TestInitialize]
         public static void setUp()
             {
             driver = new ChromeDriver();
@@ -21,7 +21,7 @@ namespace Twitter_Automation
             }
 
 
-        [Test]
+        [TestMethod]
         public void AutoFollow()
             {
             //Instatiating Variables
