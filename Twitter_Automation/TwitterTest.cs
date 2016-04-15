@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -23,12 +24,9 @@ namespace Twitter_Automation
         [Test]
         public void AutoFollow()
             {
+            //Instatiating Variables
             var s = new Sources();
             var tw = new TestHelpers();
-            var sourceOne =
-                @"https://community.statusbrew.com/twitter/1246601462/source/e4d7e5f219762636b1270e0620309b75#activity/{" +
-                "\"request_type\":\"followers\",\"exclude_pf\":true,\"has_avatar\":1,\"filter_graph\":\"not_following\",\"followers_max\":350,\"following_max\":200,\"orderby\":\"last_tweeted\"}";
-
 
             //Open Main Page and Sign In
             driver.Navigate().GoToUrl(new Uri("http://www.statusbrew.com"));
@@ -38,15 +36,15 @@ namespace Twitter_Automation
             driver.FindElement(By.XPath("//input[@name='mail']")).SendKeys("davidmieloch@gmail.com");
             driver.FindElement(By.XPath("//input[@type='password']")).SendKeys("*vPB@86rJKRj");
             driver.FindElement(By.XPath("//button[contains(.,'Sign In')]")).Click();
-
+            Thread.Sleep(5000);
             //Fill First 5 sources with 200 hundred
-            tw.Fill200(Sources.sourceOne, driver);
-            tw.Fill200(Sources.sourceTwo, driver);
-            tw.Fill200(Sources.sourceThree, driver);
-            tw.Fill200(Sources.sourceFour, driver);
-            tw.Fill200(Sources.sourceFive, driver);
+            //tw.Fill200(s.sourceOne, driver);
+            //tw.Fill200(s.sourceTwo, driver);
+            //tw.Fill200(s.sourceThree, driver);
+            //tw.Fill200(s.sourceFour, driver);
+            //tw.Fill200(s.sourceFive, driver);
             //Remove Haters
-            tw.
+            tw.UnfollowPeople(s.sourceUnfollow, driver);
             }
         }
     }
