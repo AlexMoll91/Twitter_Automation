@@ -12,7 +12,6 @@ namespace Twitter_Automation
             {   
                 for(var z = 0; z < 3; z++)
                 {
-                Thread.Sleep(3000);
                 driver.Navigate().GoToUrl(new Uri(source));
                 var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(15000));
                 wait.Until(
@@ -24,6 +23,7 @@ namespace Twitter_Automation
                 foreach (var button in followButtonList)
                     {
                     button.Click();
+                    Thread.Sleep(5500);
                     }
                 }
             }
