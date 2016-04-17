@@ -1,19 +1,20 @@
 ﻿using System;
 using System.Threading;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 
 namespace Twitter_Automation
     {
-    [TestClass]
+    [TestFixture]
     public class UnitTest1
         {
         private static ChromeDriver driver;
         public static WebDriverWait wait;
 
-        [TestMethod]
+        [Test]
         public void McTesterSon()
             {
             //Instatiating Variabnunit-console nunit.tests.dllles
