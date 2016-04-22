@@ -32,13 +32,13 @@ namespace Twitter_Automation
             driver.FindElement(By.XPath("//button[contains(.,'Sign In')]")).Click();
             Thread.Sleep(5000);
             //Fill First 5 sources with 200 hundred
-            tw.Fill200(s.sourceOne, driver);
-            tw.Fill200(s.sourceTwo, driver);
-            tw.Fill200(s.sourceThree, driver);
-            tw.Fill200(s.sourceFour, driver);
-            tw.Fill200(s.sourceFive, driver);
+            tw.Fill200(s.sourceOne, driver, 200);
+            tw.Fill200(s.sourceTwo, driver, 200);
+            tw.Fill200(s.sourceThree, driver, 200);
+            tw.Fill200(s.sourceFour, driver, 200);
+            tw.Fill200(s.sourceFive, driver, 200);
             //Remove Haters
-            tw.UnfollowPeople(s.sourceUnfollow, driver);
+            tw.UnfollowPeople(s.sourceUnfollow, driver, 1000);
             }
         }
     }

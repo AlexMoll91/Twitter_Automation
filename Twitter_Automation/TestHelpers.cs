@@ -6,42 +6,72 @@ using OpenQA.Selenium.Support.UI;
 
 namespace Twitter_Automation
     {
-     public class TestHelpers
+    public class TestHelpers
         {
-        public void Fill200(string source, ChromeDriver driver)
-            {   
-                for(var z = 0; z < 3; z++)
-                {
-                driver.Navigate().GoToUrl(new Uri(source));
-                var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(15000));
-                wait.Until(
-                    ExpectedConditions.ElementIsVisible(By.XPath("//div/ul/li/a/span[@class and text()='Follow']")));
+        public void Fill200(string source, ChromeDriver driver, int totalFollows)
+            {
+            var totalFollowed = 0;
 
-                var followButtonList = driver.FindElements(By.XPath("//div/ul/li/a/span[@class and text()='Follow']"));
+            driver.Navigate().GoToUrl(new Uri(source));
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(15000));
+
+            while (totalFollowed != totalFollows)
+                {
+                wait.Until(
+                ExpectedConditions.ElementIsVisible(By.XPath("//div/ul/li/a/span[@class and text()='Follow']")));
+
+                var followButtonList =
+                    driver.FindElements(By.XPath("//div/ul/li/a/span[@class and text()='Follow']"));
 
                 //THIS IS WHERE THE RAPID CLICKS HAPPEN
                 foreach (var button in followButtonList)
                     {
-                    button.Click();
-                    Thread.Sleep(5500);
+                    try
+                        {
+                        button.Click();
+                        Thread.Sleep(5500);
+                        totalFollowed++;
+                        }
+                    catch (Exception)
+                        {
+
+
+                        }
+
                     }
                 }
+            Console.WriteLine(totalFollowed + " people followed.");
+
             }
-        public void UnfollowPeople(string url, ChromeDriver driver)
+        public void UnfollowPeople(string url, ChromeDriver driver, int totalUnfollows)
             {
             var totalremoved = 0;
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(15000));
             driver.Navigate().GoToUrl(url);
-            while (totalremoved != 1000)
+            while (totalremoved != totalUnfollows)
                 {
+                wait.Until(
+                    ExpectedConditions.ElementIsVisible(By.XPath("//div/ul/li/a/span[@class and text()='Unfollow']")));
+
                 var removeHaterList = driver.FindElements(By.XPath("//div/ul/li/a/span[@class and text()='Unfollow']"));
+
                 foreach (var hater in removeHaterList)
                     {
-                    Thread.Sleep(5500);
-                    hater.Click();
-                    totalremoved++;
+                    try
+                        {
+                        Thread.Sleep(5500);
+                        hater.Click();
+                        totalremoved++;
+                        }
+                    catch (Exception)
+                        {
+
+
+                        }
+
                     }
                 }
-            Console.WriteLine(totalremoved+" hataz UNFOLLOWED");
+            Console.WriteLine(totalremoved + " people unfollowed.");
             }
         }
 
