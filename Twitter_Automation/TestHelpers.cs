@@ -77,38 +77,38 @@ namespace Twitter_Automation
 
     class Sources
         {
-        //METALBLADE Records
-        public string sourceOne { get; set; }
-        //EarAche Records
-        public string sourceTwo { get; set; }
-        //Relapse Records
-        public string sourceThree { get; set; }
-        //Tool Band
-        public string sourceFour { get; set; }
         //Opeth
+        public string sourceOne { get; set; }
+        //Tool
+        public string sourceTwo { get; set; }
+        //Roadrunner Records
+        public string sourceThree { get; set; }
+        //Nuclear Blast Records
+        public string sourceFour { get; set; }
+        //Century Media Records
         public string sourceFive { get; set; }
         //Unfollow List
         public string sourceUnfollow { get; set; }
 
         public Sources()
-            {
+        {
             sourceOne =
-                "https://community.statusbrew.com/twitter/1246601462/source/e4d7e5f219762636b1270e0620309b75#activity/{" +
-                "\"request_type\":\"followers\",\"exclude_pf\":true,\"has_avatar\":1,\"filter_graph\":\"not_following\",\"followers_max\":350,\"following_max\":200,\"orderby\":\"last_tweeted\"}";
+                "https://community.statusbrew.com/twitter/1246601462/source/bb1831e96336d3313f64fa9a1b106958#activity/{" +
+                "\"request_type\":\"followers\",\"exclude_pf\":true,\"has_avatar\":1,\"filter_graph\":\"not_following\",\"followers_max\":350,\"following_max\":200,\"orderby\":\"last_tweeted\",\"lasttweet_max\":7,\"age_min\":30,\"zombie_lvl\":\"no_zombie\"}";
             sourceTwo =
-                "https://community.statusbrew.com/twitter/1246601462/source/b88d4bde98cb615bdb9afe3f9ede9a59#activity/{" +
-                "\"request_type\":\"followers\",\"exclude_pf\":true,\"has_avatar\":1,\"filter_graph\":\"not_following\",\"followers_max\":350,\"following_max\":200,\"orderby\":\"last_tweeted\"}";
+                "https://community.statusbrew.com/twitter/1246601462/source/03f45c352e4cef3126e6df34145647a6#activity/{" +
+                "\"request_type\":\"followers\",\"exclude_pf\":true,\"has_avatar\":1,\"filter_graph\":\"not_following\",\"followers_max\":350,\"following_max\":200,\"orderby\":\"last_tweeted\",\"lasttweet_max\":7,\"age_min\":30,\"zombie_lvl\":\"no_zombie\"}";
             sourceThree =
-                "https://community.statusbrew.com/twitter/1246601462/source/5f68a3051ee23d81299d6064e1f679a1#activity/{" +
-                "\"request_type\":\"followers\",\"exclude_pf\":true,\"has_avatar\":1,\"filter_graph\":\"not_following\",\"followers_max\":350,\"following_max\":200,\"orderby\":\"last_tweeted\"}";
+                "https://community.statusbrew.com/twitter/1246601462/source/638a12f57bd1c78274dcd80f1de8d752#activity/{" +
+                "\"request_type\":\"followers\",\"exclude_pf\":true,\"has_avatar\":1,\"filter_graph\":\"not_following\",\"followers_max\":350,\"following_max\":200,\"orderby\":\"last_tweeted\",\"lasttweet_max\":7,\"age_min\":30,\"zombie_lvl\":\"no_zombie\"}";
             sourceFour =
-                "https://community.statusbrew.com/twitter/1246601462/source/bb1831e96336d3313f64fa9a1b106958#activity/{" +
-                "\"request_type\":\"followers\",\"exclude_pf\":true,\"has_avatar\":1,\"filter_graph\":\"not_following\",\"followers_max\":350,\"following_max\":200,\"orderby\":\"last_tweeted\"}";
+                "https://community.statusbrew.com/twitter/1246601462/source/78f811dfee13bff9da33a956eea96454#activity/{" +
+                "\"request_type\":\"followers\",\"exclude_pf\":true,\"has_avatar\":1,\"filter_graph\":\"not_following\",\"followers_max\":350,\"following_max\":200,\"orderby\":\"last_tweeted\",\"lasttweet_max\":7,\"age_min\":30,\"zombie_lvl\":\"no_zombie\"}";
             sourceFive =
-                "https://community.statusbrew.com/twitter/1246601462/source/bb1831e96336d3313f64fa9a1b106958#activity/{" +
-                "\"request_type\":\"followers\",\"exclude_pf\":true,\"has_avatar\":1,\"filter_graph\":\"not_following\",\"followers_max\":350,\"following_max\":200,\"orderby\":\"last_tweeted\"}";
+                "https://community.statusbrew.com/twitter/1246601462/source/e33468b6095a3992fcccfe2366ac9ea5#activity/{" +
+                "\"request_type\":\"followers\",\"exclude_pf\":true,\"has_avatar\":1,\"filter_graph\":\"not_following\",\"followers_max\":350,\"following_max\":200,\"orderby\":\"last_tweeted\",\"lasttweet_max\":7,\"age_min\":30,\"zombie_lvl\":\"no_zombie\"}";
             sourceUnfollow = "https://community.statusbrew.com/twitter/1246601462#activity/{" +
                              "\"request_type\":\"nfb\",\"exclude_rf_days\":5,\"filter_graph\":\"following\",\"orderby\":\"last_tweeted\",\"orderdir\":\"asc\"}";
-            }
         }
     }
+}
