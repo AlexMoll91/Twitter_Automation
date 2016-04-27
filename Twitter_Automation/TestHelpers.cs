@@ -1,14 +1,20 @@
 ﻿using System;
+using System.Globalization;
 using System.Threading;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 
 namespace Twitter_Automation
     {
     public class TestHelpers
-        {
-        public void Fill200(string source, ChromeDriver driver, int totalFollows)
+    {
+        public static int Followed = 0;
+        public static int Unfollowed = 0;
+
+        public void Fill200(string source, FirefoxDriver driver, int totalFollows)
             {
             var totalFollowed = 0;
 
@@ -31,6 +37,7 @@ namespace Twitter_Automation
                         button.Click();
                         Thread.Sleep(5500);
                         totalFollowed++;
+                            Followed++;
                         }
                     catch (Exception)
                         {
@@ -43,7 +50,7 @@ namespace Twitter_Automation
             Console.WriteLine(totalFollowed + " people followed.");
 
             }
-        public void UnfollowPeople(string url, ChromeDriver driver, int totalUnfollows)
+        public void UnfollowPeople(string url, FirefoxDriver driver, int totalUnfollows)
             {
             var totalremoved = 0;
             var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(15000));
@@ -62,6 +69,7 @@ namespace Twitter_Automation
                         Thread.Sleep(5500);
                         hater.Click();
                         totalremoved++;
+                            Unfollowed++;
                         }
                     catch (Exception)
                         {
@@ -73,24 +81,37 @@ namespace Twitter_Automation
                 }
             Console.WriteLine(totalremoved + " people unfollowed.");
             }
+
+        public static string WhatDo(FirefoxDriver driver)
+        {
+            int followerCount;
+            int unfollowerCount;
+            driver.Navigate().GoToUrl("https://community.statusbrew.com/twitter/1246601462#activity/{"+"\"request_type\":\"nfb\"}");
+
+
+                followerCount = int.Parse(driver.FindElement(By.XPath("//span[@class='badge js-count-graph-following']")).Text, NumberStyles.AllowThousands);
+            unfollowerCount = int.Parse(driver.FindElement(By.XPath("//span[@class='badge js-count-graph-followers']")).Text, NumberStyles.AllowThousands);
+
+            return followerCount > unfollowerCount ? "follow" : "unfollow";
+        }
         }
 
-    class Sources
+    public static class Sources
         {
         //Opeth
-        public string sourceOne { get; set; }
+        public static string sourceOne { get; set; }
         //Tool
-        public string sourceTwo { get; set; }
+        public static string sourceTwo { get; set; }
         //Roadrunner Records
-        public string sourceThree { get; set; }
+        public static string sourceThree { get; set; }
         //Nuclear Blast Records
-        public string sourceFour { get; set; }
+        public static string sourceFour { get; set; }
         //Century Media Records
-        public string sourceFive { get; set; }
+        public static string sourceFive { get; set; }
         //Unfollow List
-        public string sourceUnfollow { get; set; }
+        public static string sourceUnfollow { get; set; }
 
-        public Sources()
+        static Sources()
         {
             sourceOne =
                 "https://community.statusbrew.com/twitter/1246601462/source/bb1831e96336d3313f64fa9a1b106958#activity/{" +
