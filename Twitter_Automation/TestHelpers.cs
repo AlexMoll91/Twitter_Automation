@@ -86,12 +86,13 @@ namespace Twitter_Automation
         {
             int followerCount;
             int unfollowerCount;
-            driver.Navigate().GoToUrl("https://community.statusbrew.com/twitter/1246601462#activity/{"+"\"request_type\":\"nfb\"}");
+            driver.Navigate().GoToUrl("https://twitter.com/oneironaught718");
 
-
-                followerCount = int.Parse(driver.FindElement(By.XPath("//span[@class='badge js-count-graph-following']")).Text, NumberStyles.AllowThousands);
-            unfollowerCount = int.Parse(driver.FindElement(By.XPath("//span[@class='badge js-count-graph-followers']")).Text, NumberStyles.AllowThousands);
-
+            
+            unfollowerCount = int.Parse(driver.FindElement(By.XPath(".//*[@id='page-container']/div[1]/div/div[2]/div/div/div[2]/div/div/ul/li[2]/a/span[2]")).Text.Replace(".","").Replace("K","").PadRight(5,'0'));
+            followerCount = int.Parse(driver.FindElement(By.XPath(".//*[@id='page-container']/div[1]/div/div[2]/div/div/div[2]/div/div/ul/li[3]/a/span[2]")).Text.Replace(".", "").Replace("K", "").PadRight(5, '0'));
+            Console.WriteLine("unfollower count: " + unfollowerCount + " follower count: " + followerCount);
+            
             return followerCount > unfollowerCount ? "follow" : "unfollow";
         }
         }

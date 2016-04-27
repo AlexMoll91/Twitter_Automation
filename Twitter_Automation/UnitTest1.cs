@@ -59,7 +59,7 @@ namespace Twitter_Automation
                     tw.UnfollowPeople(Sources.sourceUnfollow, driver, 100);
                     }
 
-                if (listCount == 4)
+                if (listCount == 5)
                     {
                     listCount = 0;
                     }
